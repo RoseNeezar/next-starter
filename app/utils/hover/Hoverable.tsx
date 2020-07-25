@@ -18,24 +18,24 @@ const Hoverable: React.FC<HoverProps> = ({
     showHover: true,
   });
   const { isHovered, showHover } = state;
-  const _handleMouseEnter = (e: any) => {
+  const _handleMouseEnter = () => {
     if (isHoverEnabled() && !isHovered) {
       if (onHoverIn) onHoverIn();
       setState({ ...state, isHovered: true });
     }
   };
 
-  const _handleMouseLeave = (e: any) => {
+  const _handleMouseLeave = () => {
     if (isHovered) {
       if (onHoverOut) onHoverOut();
       setState({ ...state, isHovered: false });
     }
   };
 
-  const _handleGrant = (e: any) => {
+  const _handleGrant = () => {
     setState({ ...state, showHover: false });
   };
-  const _handleRelease = (e: any) => {
+  const _handleRelease = () => {
     setState({ ...state, showHover: true });
   };
 

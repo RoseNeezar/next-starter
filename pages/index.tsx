@@ -22,7 +22,6 @@ const Text = styled.Text`
   cursor: pointer;
   color: ${({ theme }) => theme.primary};
 `;
-const Button = styled.TouchableHighlight``;
 
 const index = () => {
   const rootStore = useContext(RootStoreContext);
