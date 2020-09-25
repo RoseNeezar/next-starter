@@ -1,14 +1,15 @@
-import { RootStore } from "./rootStore";
-import { observable, action } from "mobx";
+import { observable, action, observe } from "mobx";
 
-export default class TokenStore {
-  rootStore: RootStore;
-  constructor(rootStore: RootStore) {
-    this.rootStore = rootStore;
-  }
+class LightStore {
   @observable openLight = false;
 
   @action setOpenLight = (open: boolean) => {
     this.openLight = open;
   };
 }
+
+export const lightStore = new LightStore();
+
+observe(lightStore, (change) => {
+  change.object = change.object.constructor?.name;
+});

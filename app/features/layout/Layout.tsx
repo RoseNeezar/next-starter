@@ -1,13 +1,13 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 import { ThemeProvider } from "styled-components";
 import { DarkTheme, LightTheme } from "./../../themes";
 
 import { observer } from "mobx-react-lite";
-import { RootStoreContext } from "../../store/rootStore";
+
+import { themeStore } from "../../store/themeStore";
 
 const Layout: FC = ({ children }) => {
-  const rootStore = useContext(RootStoreContext);
-  const { toggleTheme } = rootStore.themeStore;
+  const { toggleTheme } = themeStore;
 
   return (
     <ThemeProvider theme={!toggleTheme ? DarkTheme : LightTheme}>
