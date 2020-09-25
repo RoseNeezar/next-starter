@@ -1,15 +1,14 @@
 import styled from "styled-components/native";
 import Hoverable from "../app/utils/hover/Hoverable";
 import { observer } from "mobx-react-lite";
-import { useContext } from "react";
-import { RootStoreContext } from "../app/store/rootStore";
 import Layout from "../app/features/layout/Layout";
+import { lightStore } from "../app/store/lightStore";
 
 interface IStyle {
   ishover?: boolean;
 }
 const LayoutIndex = styled.View`
-  background-color: ${({ theme }) => theme.delete};
+  background-color: ${({ theme }) => theme.color3};
   height: 100vh;
   display: flex;
   align-items: center;
@@ -24,8 +23,7 @@ const Text = styled.Text`
 `;
 
 const index = () => {
-  const rootStore = useContext(RootStoreContext);
-  const { openLight, setOpenLight } = rootStore.lightStore;
+  const { openLight, setOpenLight } = lightStore;
   return (
     <Layout>
       <LayoutIndex>
@@ -39,7 +37,7 @@ const index = () => {
             </Text>
           )}
         </Hoverable>
-        {openLight && <Text>BUKAK</Text>}
+        {openLight && <Text>BUKAK siniiiiii</Text>}
       </LayoutIndex>
     </Layout>
   );
